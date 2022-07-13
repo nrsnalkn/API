@@ -46,7 +46,8 @@ public class Get07 extends JsonplaceholderBaseUrl {
      //(bu dosyadaki id 190'dan buyuk olanlari bana ver anlamina geliyor yukardaki yazim) ve bir liste atamasini yaptik
 
         System.out.println(ids);
-        List<String> titles= json.getList("findAll{it.id==50}.title"); // id'si 50 olanin title
+        List<String> titles= json.getList("findAll{it.id==50}.title");
+        // id'si 50 olanin title'lar
         System.out.println(titles);
         //Assert that there are 10 ids greater than 190
         assertEquals(10,ids.size());
