@@ -1,4 +1,4 @@
-package get_Request;
+package post_Request;
 
 import base_urls.JsonplaceholderBaseUrl;
 import io.restassured.http.ContentType;
@@ -48,7 +48,7 @@ public class Post01 extends JsonplaceholderBaseUrl {
                jsonPlaceHolderTestData.expectedDataWhitAllKeys(55,"Tidy your room",false);
 
         //3. Step Send Post Reguast and the Response
-    Response response=    given().spec(spec).contentType(ContentType.JSON).body(expecdetDataMap).when().post("/{first}");
+    Response response=given().spec(spec).contentType(ContentType.JSON).body(expecdetDataMap).when().post("/{first}");
 
         response.prettyPrint();
 
