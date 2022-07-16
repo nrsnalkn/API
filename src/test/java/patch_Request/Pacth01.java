@@ -45,7 +45,8 @@ public class Pacth01 extends JsonplaceholderBaseUrl {
 
    //4.Step Do Assertion
      Map<String,Object>   mapToAssertAllDatals=jsonpTestData.expectedDataWhitAllKeys(10,"Wash the dishes",true);
-        response.then().assertThat().statusCode(200).body("title",equalTo(mapToAssertAllDatals.get("title")));
+        response.then().assertThat().statusCode(200).body("title",equalTo(mapToAssertAllDatals.get("title")),"completed",equalTo(mapToAssertAllDatals.get("completed")),
+                "userId",equalTo(mapToAssertAllDatals.get("userId")));
 
     }
 }
