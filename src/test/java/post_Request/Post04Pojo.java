@@ -55,16 +55,14 @@ public class Post04Pojo extends HerokuappBesaUrl {
         BookingDatesPojo bookingdates=new BookingDatesPojo("2021-09-21","2021-12-21");
         BookingPojo requastBody= new BookingPojo("Ali", "Can", 999, true,bookingdates,"Breakfast with white tea, Dragon juice" );
 
-        //3.Step send POST Request get the Response
+        //3.Step send POST Request and  get the Response
        Response response=given().spec(spec).contentType(ContentType.JSON).body(requastBody).when().post("/{first}");
        response.prettyPrint();
 
        //4.step Do assertion
+        response.then().assertThat().statusCode(200);
         BookingResponseBodyPojo actualBody=response.as(BookingResponseBodyPojo.class);
-        // 1.yol
-        assertEquals(requastBody.toString(),actualBody.getBooking().toString());
 
-        //2.yol
         assertEquals(requastBody.getFirstname(),actualBody.getBooking().getFirstname());
         assertEquals(requastBody.getLastname(),actualBody.getBooking().getLastname());
         assertEquals(requastBody.getTotalprice(),actualBody.getBooking().getTotalprice());
