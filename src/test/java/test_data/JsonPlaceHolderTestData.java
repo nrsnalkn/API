@@ -28,4 +28,17 @@ public class JsonPlaceHolderTestData {
         }
         return expectedData;
     }
+    /*
+    {
+                "    \"userId\": 10,\n" +
+                "    \"id\": 198,\n" +
+                "    \"title\": \"quis eius est sint explicabo\",\n" +
+                "    \"completed\": true\n" +
+                "  }";*/
+
+    public String expectedDataInString(Integer userId, String title , Boolean completed){
+        String expectedData="";
+
+        return expectedData;
+    }
 }
