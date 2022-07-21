@@ -4,6 +4,7 @@ import base_urls.JsonplaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.JsonplaceholderPojo;
+import test_data.JsonPlaceHolderTestData;
 import utils.JsonUtil;
 
 import java.util.HashMap;
@@ -32,19 +33,21 @@ public class Get14ObjectMapper extends JsonplaceholderBaseUrl {
         // 1. Step:  Set The Url
         spec.pathParams("first","todos","second",198);
         // 2. Step set the Expected Data
-        String expectedData = "{\n" +
+       /* String expectedData = "{\n" +
                 "    \"userId\": 10,\n" +
                 "    \"id\": 198,\n" +
                 "    \"title\": \"quis eius est sint explicabo\",\n" +
                 "    \"completed\": true\n" +
-                "  }";
-        HashMap<String,Object> expectedDataMap = JsonUtil.convertJsonToJavaObject(expectedData, HashMap.class);
+                "  }";*/
+        JsonPlaceHolderTestData jsonData=new JsonPlaceHolderTestData();
+       String expectedData= jsonData.expectedDataInString(10,"quis eius est sint explicabo",true);
+        HashMap <String,Object>expectedDataMap = JsonUtil.convertJsonToJavaObject(expectedData, HashMap.class);
         // 3. Step Send the GET Request and get the Response
         Response response= given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
         // 4. Step:  Do Assertion
         assertEquals(200,response.getStatusCode());
         HashMap<String,Object> actualDataMap = JsonUtil.convertJsonToJavaObject(response.asString(),HashMap.class);
-        assertEquals(expectedDataMap,actualDataMap);
         assertEquals(expectedDataMap.get("userId"),actualDataMap.get("userId"));
         assertEquals(expectedDataMap.get("title"),actualDataMap.get("title"));
         assertEquals(expectedDataMap.get("completed"),actualDataMap.get("completed"));
@@ -58,12 +61,15 @@ public class Get14ObjectMapper extends JsonplaceholderBaseUrl {
         // 1. Step:  Set The Url
         spec.pathParams("first","todos","second",198);
         // 2. Step set the Expected Data
-        String expectedData = "{\n" +
+      /*  tavsiye edilmiyor
+      String expectedData = "{\n" +
                 "    \"userId\": 10,\n" +
                 "    \"id\": 198,\n" +
                 "    \"title\": \"quis eius est sint explicabo\",\n" +
                 "    \"completed\": true\n" +
-                "  }";
+                "  }";*/
+        JsonPlaceHolderTestData jsonData=new JsonPlaceHolderTestData();
+        String expectedData= jsonData.expectedDataInString(10,"quis eius est sint explicabo",true);
         JsonplaceholderPojo expectedDataPojo = JsonUtil.convertJsonToJavaObject(expectedData, JsonplaceholderPojo.class);
 
         // 3. Step Send the GET Request and get the Response

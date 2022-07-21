@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
 import pojos.BookingPojo;
+import test_data.HerOkuAppTestData;
 import utils.JsonUtil;
 
 import static io.restassured.RestAssured.given;
@@ -48,6 +49,8 @@ public class Get15ObjectMapper extends HerokuappBesaUrl {
                 "                            },\n" +
                 "                            \"additionalneeds\": \"Breakfast\"\n" +
                 "                        }";
+        HerOkuAppTestData herokuapp= new HerOkuAppTestData();
+
         BookingPojo expectedDataPojo = JsonUtil.convertJsonToJavaObject(expectedData, BookingPojo.class);
 
 
