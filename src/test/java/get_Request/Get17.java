@@ -58,7 +58,7 @@ public class Get17 extends DummyRestApi {
         //4.Step Do Assertion
         response.then().assertThat().statusCode(200);
 
-        DummyBodyPojo actualDataPojo = JsonUtil.convertJsonToJavaObject(response.asString(), DummyBodyPojo.class);//java formatina cevirdik
+        DummyBodyPojo actualDataPojo = JsonUtil.convertJsonToJavaObject(response.asString(), DummyBodyPojo.class);//java formatina cevirmek icin mapper kullandik
 
         assertEquals(dummyBodyPojo.getStatus(), actualDataPojo.getStatus());
         assertEquals(dummyBodyPojo.getStatus(), actualDataPojo.getStatus());
